@@ -1,0 +1,128 @@
+MadPlayfair Displaye by Request<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Produk</title>
+    <style>
+        body {
+            font-family: Playfair Display, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider-container {
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            background: #fff;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Format gambar produk */
+        .slide img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .product-name {
+            font-size: 1.2em;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .product-price {
+            color: #e91e63;
+            font-size: 1.1em;
+        }
+
+        /* Tombol navigasi */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slides">
+        <div class="slide">
+            <img src="https://via.placeholder.com/800x400?text=Produk+1" alt="Produk 1">
+            <div class="product-name">Produk 1</div>
+            <div class="product-price">Rp 150.000</div>
+			<img src="IMG_4263.jpg" width=500 height=700>
+        </div>
+        <div class="slide">
+            <img src="https://via.placeholder.com/800x400?text=Produk+2" alt="Produk 2">
+            <div class="product-name">Produk 2</div>
+            <div class="product-price">Rp 200.000</div>
+        </div>
+        <div class="slide">
+            <img src="https://via.placeholder.com/800x400?text=Produk+3" alt="Produk 3">
+            <div class="product-name">Produk 3</div>
+            <div class="product-price">Rp 250.000</div>
+        </div>
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+</div>
+
+<script>
+    const slides = document.querySelector('.slides');
+    const slideCount = document.querySelectorAll('.slide').length;
+    let index = 0;
+
+    document.querySelector('.next').addEventListener('click', () => {
+        index = (index + 1) % slideCount;
+        updateSlide();
+    });
+
+    document.querySelector('.prev').addEventListener('click', () => {
+        index = (index - 1 + slideCount) % slideCount;
+        updateSlide();
+    });
+
+    function updateSlide() {
+        slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+</script>
+
+</body>
+</html>
+

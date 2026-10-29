@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak Produk Kami</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: pink;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .carousel-title {
+      text-align: center;
+      padding: 20px 20px 10px;
+      font-size: 1.4rem;
+      color: #333;
+    }
+
+    .carousel-track-container {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      padding: 20px 30px 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 32px;
+      color: white;
+    }
+
+    /* Warna khusus per kontak */
+    .wa { background-color: #25D366; }
+    .ig { background-color: #E1306C; }
+    .shopee { background-color: #EE4D2D; }
+
+    .contact-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    .contact-desc {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .btn-contact {
+      display: inline-block;
+      padding: 10px 24px;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-contact:hover {
+      opacity: 0.9;
+    }
+
+    /* Tombol Navigasi */
+    .nav-btn {
+      position: absolute;
+      top: 55%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.15);
+      color: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+
+    /* Indicator Dots */
+    .dots-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding-bottom: 20px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: #333;
+      width: 22px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carousel-container">
+    <h2 class="carousel-title">Hubungi Kami</h2>
+
+    <div class="carousel-track-container">
+      <div class="carousel-track">
+
+        <!-- Slide 1: WhatsApp -->
+        <div class="carousel-slide">
+          <div class="contact-icon wa">💬</div>
+          <div class="contact-name">WhatsApp Admin</div>
+          <p class="contact-desc">Hubungi dan pesan produkmu melalui WhatsApp.</p>
+          <a href="https://wa.me/6283122179107" target="_blank" class="btn-contact wa">Chat WhatsApp</a>
+        </div>
+
+        <!-- Slide 2: Instagram -->
+        <div class="carousel-slide">
+          <div class="contact-icon ig">📷</div>
+          <div class="contact-name">Instagram Official</div>
+          <p class="contact-desc">Lihat katalog produk kami di Instagram.</p>
+          <a href="https://instagram.com/beautyresults_bysophia" target="_blank" class="btn-contact ig">Kunjungi Instagram</a>
+        </div>
+
+        <!-- Slide 3: Shopee -->
+        <div class="carousel-slide">
+          <div class="contact-icon shopee">🛍️</div>
+          <div class="contact-name">Tokostore Shopee</div>
+          <p class="contact-desc">Belanja dengan praktis melalui Shopee.</p>
+          <a href="https://shopee.co.id/username_toko" target="_blank" class="btn-contact shopee">Beli di Shopee</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Navigasi Panah -->
+    <button class="nav-btn prev-btn">&#10094;</button>
+    <button class="nav-btn next-btn">&#10095;</button>
+
+    <!-- Indicator Dots -->
+    <div class="dots-container">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+    </div>
+  </div>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const dots = document.querySelectorAll('.dot');
+
+    let currentIndex = 0;
+
+    function updateCarousel(index) {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(currentIndex);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(currentIndex);
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        currentIndex = parseInt(e.target.dataset.index);
+        updateCarousel(currentIndex);
+      });
+    });
+  </script>
+
+</body>
+</html>

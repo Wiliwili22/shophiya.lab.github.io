@@ -1,0 +1,177 @@
+/* =========================
+   RESET
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+   ========================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FF8DA1;
+    color: #333;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+    background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+	url("campuranpolka.jpg");
+	
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+color: white;
+    text-align: center;
+
+    padding: 120px 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+header p {
+    font-size: 16px;
+}
+
+
+/* =========================
+   MENU NAVIGASI
+   ========================= */
+
+nav {
+    background-color: #FCE4EC;
+
+    text-align: center;
+
+    padding: 10px;
+}
+
+nav a {
+    display: inline-block;
+
+    color: brown;
+    text-decoration: none;
+
+    padding: 12px 25px;
+
+    margin: 3px;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+
+/* Saat mouse diarahkan ke menu */
+
+nav a:hover {
+    background-color: #FFFF8F;
+}
+
+
+/* =========================
+         Area Konten
+   ========================= */
+background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+	url("latarpolkadot.jpg");
+main {
+    width: 90%;
+
+    margin: 25px auto;
+
+    background-image:<img src="latarpolkadot.jpg"
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    color: #FF8DA1;
+}
+
+
+/* =========================
+   IFRAME
+   ========================= */
+
+iframe {
+    width: 100%;
+
+    height: 500px;
+
+    border: 2px solid #1e3a5f;
+
+    border-radius: 8px;
+
+    background-color: white;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background-color: #1e3a5f;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media screen and (max-width: 600px) {
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav a {
+        display: block;
+
+        margin: 5px 20px;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    iframe {
+        height: 400px;
+    }
+}

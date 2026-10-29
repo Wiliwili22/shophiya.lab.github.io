@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Toko Kami</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #FBAED2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      border-radius: 16px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .carousel-track-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      color: white;
+    }
+
+    /* Styling elemen img sebagai background slide */
+    .slide-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Overlay untuk keterbacaan teks */
+    .carousel-slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1;
+    }
+
+    /* Konten di dalam slide */
+    .slide-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-badge {
+      background: #895129;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .slide-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .slide-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+      max-width: 450px;
+    }
+
+    /* Tombol Navigasi */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 3;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.8);
+      color: #1a1a1a;
+    }
+
+    .prev-btn { left: 15px; }
+    .next-btn { right: 15px; }
+
+    /* Indicator Dots */
+    .dots-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 3;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background-color: #ffffff;
+      width: 28px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carousel-container">
+    <div class="carousel-track-container">
+      <div class="carousel-track">
+
+        <!-- Slide 1: Tentang Toko -->
+        <div class="carousel-slide">
+          <img src="bouquet hitam miring.jpeg" alt="Tentang Kami" class="slide-bg-img">
+          <div class="slide-content">
+            <span class="profile-badge">Tentang Kami</span>
+            <h2 class="slide-title">Beauty Results By Sophia</h2>
+            <p class="slide-desc">Hasil produk dari karya tangan kreatif, mengutamakan kesenangan pelanggan</p>
+          </div>
+        </div>
+
+        <!-- Slide 2: Keunggulan Toko -->
+        <div class="carousel-slide">
+          <img src="Bouqetpink.jpeg" alt="Keunggulan" class="slide-bg-img">
+          <div class="slide-content">
+            <span class="profile-badge">Keunggulan</span>
+            <h2 class="slide-title">Made by request</h2>
+            <p class="slide-desc">Perolehan produk yang spesial, berbeda dengan produk lainnya.</p>
+          </div>
+        </div>
+
+        <!-- Slide 3: Layanan Pelanggan -->
+        <div class="carousel-slide">
+          <img src="gelang kelinci.jpeg" alt="Pelayanan" class="slide-bg-img">
+          <div class="slide-content">
+            <span class="profile-badge">Pelayanan</span>
+            <h2 class="slide-title">Respon cepat dan ramah</h2>
+            <p class="slide-desc">Fast respon dan pengiriman terjamin aman.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tombol Navigasi -->
+    <button class="nav-btn prev-btn">&#10094;</button>
+    <button class="nav-btn next-btn">&#10095;</button>
+
+    <!-- Indicator Dots -->
+    <div class="dots-container">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+    </div>
+  </div>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const dots = document.querySelectorAll('.dot');
+
+    let currentIndex = 0;
+
+    function updateCarousel(index) {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(currentIndex);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(currentIndex);
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        currentIndex = parseInt(e.target.dataset.index);
+        updateCarousel(currentIndex);
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk Aksesoris - Tampilan Pas</title>
+    <style>
+        /* CSS Dasar & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: pink;
+            padding: 40px 20px;
+        }
+
+        /* Container Produk */
+        .product-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ff94b9;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Grid Produk */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Lebar minimal sedikit diperbesar untuk foto persegi */
+            gap: 25px;
+        }
+
+        /* Kartu Produk (Product Card) */
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(255, 148, 185, 0.25);
+        }
+
+        /* Pembungkus Foto Produk - Diubah agar lebih persegi */
+        .product-image-container {
+            width: 100%;
+            height: 320px; /* Tinggi disesuaikan agar lebih proporsional dengan lebar minimal kartu */
+            overflow: hidden;
+            position: relative;
+            background-color: #fcf4f6; /* Warna latar belakang kotak gambar, sesuaikan dengan warna latar body agar terlihat menyatu jika gambar tidak memenuhi kotak */
+        }
+
+        /* Elemen Tag Gambar Produk - PENYESUAIAN AGAR TIDAK NGE-ZOOM */
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* GANTI INI: Gambar akan dikecilkan agar muat seluruhnya di dalam kotak, tanpa terpotong */
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05); /* Sedikit zoom saat hover, tapi tidak parah */
+        }
+
+        /* Badge Label */
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: #ff70a6;
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Informasi Produk */
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .product-price {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .price-current {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #ff4d8d;
+        }
+
+        /* Tombol Beli */
+        .btn-buy {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff70a6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-buy:hover {
+            background-color: #e05287;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="product-section">
+        <h2 class="section-title">Koleksi Aksesoris</h2>
+
+        <div class="product-grid">
+
+            <!-- KARTU PRODUK DENGAN FOTO GELANG KELINCI - TAMPILAN PAS -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <span class="badge">Handmade</span>
+                    <!-- Menggunakan file gambar 'gelang kelinci.jpeg' -->
+                    <img src="gelang kelinci.jpeg" alt="Gelang Kelinci Sparkling Bunny" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Aksesoris / Gelang</span>
+                    <h3 class="product-title">Sparkling Bunny Bracelet</h3>
+                    <div class="product-price">
+                        <span class="price-current">Rp 35.000</span>
+                    </div>
+                    <button class="btn-buy">Beli Sekarang</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+<body>
+
+    <section class="product-section">
+        
+
+        <div class="product-grid">
+
+            <!-- KARTU PRODUK DENGAN FOTO GELANG KELINCI - TAMPILAN PAS -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <span class="badge">Handmade</span>
+                    <!-- Menggunakan file gambar 'gelang kelinci.jpeg' -->
+                    <img src="gelangflower.jpeg" alt="Flower Bracelet" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Aksesoris / Gelang</span>
+                    <h3 class="product-title">Flower Bracelet</h3>
+                    <div class="product-price">
+                        <span class="price-current">Rp 35.000</span>
+                    </div>
+                    <button class="btn-buy">Beli Sekarang</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+<body>
+
+    <section class="product-section">
+       
+        <div class="product-grid">
+
+            <!-- KARTU PRODUK DENGAN FOTO GELANG KELINCI - TAMPILAN PAS -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <span class="badge">Handmade</span>
+                    <!-- Menggunakan file gambar 'gelang kelinci.jpeg' -->
+                    <img src="arriety.jpeg" alt="Arriety Bracelet" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Aksesoris / Gelang</span>
+                    <h3 class="product-title">Arriety Bracelet</h3>
+                    <div class="product-price">
+                        <span class="price-current">Rp25.000</span>
+                    </div>
+                    <button class="btn-buy">Beli Sekarang</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+<body>
+
+    <section class="product-section">
+        <h2 class="section-title">Koleksi Valentine Bouquet</h2>
+
+        <div class="product-grid">
+
+            <!-- KARTU PRODUK DENGAN FOTO GELANG KELINCI - TAMPILAN PAS -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <span class="badge">Handmade</span>
+                    <!-- Menggunakan file gambar 'gelang kelinci.jpeg' -->
+                    <img src="Bouqetpink.jpeg" alt="Pink Valentine Bouquet" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Bouquet</span>
+                    <h3 class="product-title">Pink Valentine Bouquet</h3>
+                    <div class="product-price">
+                        <span class="price-current">Rp250.000</span>
+                    </div>
+                    <button class="btn-buy">Beli Sekarang</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+<body>
+
+    <section class="product-section">
+       
+        <div class="product-grid">
+
+            <!-- KARTU PRODUK DENGAN FOTO GELANG KELINCI - TAMPILAN PAS -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <span class="badge">Handmade</span>
+                    <!-- Menggunakan file gambar 'gelang kelinci.jpeg' -->
+                    <img src="bouquet hitam miring.jpeg" alt="Black Valentine Bouquet" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Bouquet</span>
+                    <h3 class="product-title">Black Valentine Bouquet</h3>
+                    <div class="product-price">
+                        <span class="price-current">Rp250.000</span>
+                    </div>
+                    <button class="btn-buy">Beli Sekarang</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+<body>
+
+    <section class="product-section">
+       
+        <div class="product-grid">
+
+            <!-- KARTU PRODUK DENGAN FOTO GELANG KELINCI - TAMPILAN PAS -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <span class="badge">Handmade</span>
+                    <!-- Menggunakan file gambar 'gelang kelinci.jpeg' -->
+                    <img src="kpop.jpeg" alt="Mini Bouquet with foto" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Bouquet</span>
+                    <h3 class="product-title">Mini Bouquet with foto</h3>
+                    <div class="product-price">
+                        <span class="price-current">Rp50.000</span>
+                    </div>
+                    <button class="btn-buy">Beli Sekarang</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
